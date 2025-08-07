@@ -181,7 +181,6 @@ public async Task<ActionResult<WeatherForecastSummaryDto>> CreateSummaryForecast
 
     if (!result1.IsSuccess)
     {
-        // Handle failure case
         return result1.ToActionResult(this);
     }
 
