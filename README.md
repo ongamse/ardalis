@@ -193,7 +193,7 @@ public async Task<ActionResult<WeatherForecastSummaryDto>> CreateSummaryForecast
 }
 ```
 
-With the `Bind` and `BindAsync` methods, you can simplify this further by chaining the operations together. The following example demonstrates how to use `BindAsync` to achieve the same result in a more concise manner: 
+With the `Bind` and `BindAsync` methods, you can simplify this code by chaining the operations together. The following example demonstrates how to use `BindAsync` to achieve the same result in a more concise manner: 
 
 ```csharp
 [HttpPost("BindedForecast")]
