@@ -3,7 +3,6 @@
 	<PropertyGroup>
 		<AssemblyName>Ardalis.Result.Sample.Core</AssemblyName>
 		<RootNamespace>Ardalis.Result.Sample.Core</RootNamespace>
-		<TargetFrameworks>net48;net8.0</TargetFrameworks>
 	</PropertyGroup>
 
 	<ItemGroup>
