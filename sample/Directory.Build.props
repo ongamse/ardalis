@@ -1,7 +1,6 @@
 <Project>
   <PropertyGroup>
     <NetCoreFrameworks>net8.0</NetCoreFrameworks>
-    <TargetFrameworks>netstandard2.0;$(NetCoreFrameworks)</TargetFrameworks>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
