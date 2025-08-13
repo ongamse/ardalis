@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <IsPackable>false</IsPackable>
-    <TargetFrameworks>$(NetCoreFrameworks)</TargetFrameworks>
+    <TargetFrameworks>net48;$(NetCoreFrameworks)</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
