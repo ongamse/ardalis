@@ -22,7 +22,7 @@ jobs:
         Expand-Archive -Path sl.zip -DestinationPath .
 
     - name: Build web api
-      run: dotnet build netcoreWebapi
+      run: dotnet build Ardalis.Result.sln
     - name: Analyze with preZero NextGen Static Analysis
       run: .\sl analyze --strict --wait --verbose --app ardalis --tag branch=${{ github.head_ref }} Ardalis.Result.sln -- --ignore-tests
       env:
