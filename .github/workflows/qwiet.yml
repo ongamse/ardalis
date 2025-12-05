@@ -1,0 +1,29 @@
+---
+# This workflow integrates qwiet.ai preZero with GitHub
+# Visit https://docs.shiftleft.io for help
+name: qwiet.ai
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  QwietAI-preZero-NextGen-Static-Analysis:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Download QwietAI CLI
+      run: |
+        Invoke-WebRequest -Uri 'https://cdn.shiftleft.io/download/sl-latest-windows-x64.zip' -OutFile sl.zip
+        Expand-Archive -Path sl.zip -DestinationPath .
+
+    - name: Build web api
+      run: dotnet build netcoreWebapi
+    - name: Analyze with preZero NextGen Static Analysis
+      run: .\sl analyze --strict --wait --verbose --app ardalis --tag branch=${{ github.head_ref }} Ardalis.Result.sln -- --ignore-tests
+      env:
+        SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
