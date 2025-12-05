@@ -1,4 +1,4 @@
----
+tir---
 # This workflow integrates qwiet.ai preZero with GitHub
 # Visit https://docs.shiftleft.io for help
 name: qwiet.ai
@@ -21,8 +21,10 @@ jobs:
         Invoke-WebRequest -Uri 'https://cdn.shiftleft.io/download/sl-latest-windows-x64.zip' -OutFile sl.zip
         Expand-Archive -Path sl.zip -DestinationPath .
 
+    - name: Restore web api
+      run: dotnet restore Ardalis.Result.sln
     - name: Build web api
-      run: dotnet build Ardalis.Result.sln
+      run: dotnet restore Ardalis.Result.sln
     - name: Analyze with preZero NextGen Static Analysis
       run: .\sl analyze --strict --wait --verbose --app ardalis --tag branch=${{ github.head_ref }} Ardalis.Result.sln -- --ignore-tests
       env:
